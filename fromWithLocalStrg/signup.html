@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- Font Awesome -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"
+rel="stylesheet"
+/>
+<!-- Google Fonts -->
+<link
+href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap"
+rel="stylesheet"
+/>
+<!-- MDB -->
+<link
+href="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.css"
+rel="stylesheet"
+/>  
+
+<style>
+ body{
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            color: black;
+            margin: 10px !important;
+            /* display: block; */
+            background-image: linear-gradient(135deg, #FAB2FF 10%, #1904E5 100%) ;
+            background-repeat: no-repeat;
+            background-size: cover;
+            height: 100vh;
+            overflow: hidden;
+        }
+        .box-form{
+            margin: 0px 200px;
+            width: 80%;
+            border-radius: 10px;
+            background-color: white;
+            display: flex ;
+            box-sizing: border-box;
+            flex: 1 1 auto;
+            align-items: stretch;
+            justify-content: space-between ;
+            overflow: hidden;
+            box-shadow:  5px 2px 15px 1px ;
+        }
+        .left{
+            color: white;
+            background: #5961f9ad;
+            background-repeat: no-repeat;
+            border-radius: 10px;
+            width: 65%;
+            background-size: cover;
+            background-image: url(https://i.pinimg.com/736x/5d/73/ea/5d73eaabb25e3805de1f8cdea7df4a42--tumblr-backgrounds-iphone-phone-wallpapers-iphone-wallaper-tumblr.jpg);
+        }
+        
+        .right{
+            padding: 45px;
+            width: 35%;
+        }
+        .overlay{
+            padding: 30px;
+            background: #5961f9ad;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            box-sizing: border-box;
+        }
+        .form-group{
+            margin: auto;
+        }
+        h1{
+            line-height: 1;
+            font-size: 10vmax;
+            margin-top: 30px;
+            margin-bottom: 40px;
+
+        }
+        h2{
+            display: block;
+            font-size: 6vmax;
+            margin-top: 10px;    
+            margin-bottom: 98px;
+        }
+        input{
+            width: 100%;
+            padding: 15px 10px;
+            border: none;
+            outline: none;
+            border-bottom: 2px solid  rgb(209, 202, 202);
+        }
+        .role{
+            padding: 7px 18px;
+            border: none;
+            outline: none;
+            float: right;
+            background-color: white;
+
+            /* border-bottom: 2px solid  rgb(209, 202, 202); */
+        }
+        form{
+            margin-top: 20px;
+            margin-bottom: 20px;
+        }
+       button{
+        background-image: linear-gradient(135deg, #FAB2FF 10%, #1904E5 100%);
+        float: right;
+        margin-top: 30px;
+        border: 0;
+        outline: 0;
+        border-radius: 22px;
+        padding: 9px 40px;
+        box-shadow: 7px 6px 10px -3px;
+       }
+       .text-link{
+        margin: 20px 0;
+       }
+
+       @media screen and (max-width: 1442px) {
+     .left{
+         width: 55%;
+     }
+     .right{
+         width: 45%;
+     }
+    }
+    @media (max-width: 970px) {
+        .left{
+         width: 49%;
+        }
+     .right{
+         width: 51%;
+        }
+        h1{
+            line-height: 1;
+            font-size: 7vmax;
+            margin-top: 15px;
+            margin-bottom: 20px;
+        }
+    }
+     
+
+       @media  (max-width: 768px){
+        .right,.left{
+            width: 100%;
+        }
+        h2{
+            margin-top: 10%;
+            margin-bottom: 20%;
+        }
+        h1{
+            line-height: 1;
+            font-size: 5vmax;
+            margin-top: 15px;
+            margin-bottom: 20px;
+
+        }
+        .box-form{
+            display: block;
+            
+        }
+        button{
+            margin-bottom: 30px;
+        }
+       }
+       .error{
+        font-family: Source Sans Pro;
+        font-size: 13px;
+        font-style: normal;
+        font-weight: 400;
+        color: #d9212c;
+       }
+       .errormsg{
+            font-size: 16px;
+            font-weight: 400;
+            position: relative;
+            /* bottom: 8%;
+            right: 45%;
+            left: 20%; */
+            width: 100%;
+            padding: 11px 17px;
+            border-radius: 4px;
+     
+    }
+       .success{
+           color: #064603dc;;
+            border-color: #95e699;
+           background-color: #74eb70dc;
+           display: inline-block;
+               
+        }
+        .popup{
+
+        color: #721c24;
+        border-color: #f5c6cb;
+        background-color: #faa7af;
+        display: inline-block;
+        }
+       
+</style>
+</head>
+<body>
+
+
+<div class="box-form">
+
+    <div class="left">
+      <div class="overlay">
+        <h1>Hello World.</h1>
+      </div>
+    </div>
+    
+    <div class="right">
+
+      <h2>Signup </h2>
+
+      <div class="errormsg" id="popup"></div>
+      
+      <div class="text-link">
+
+        Already have an account? <a href="login.html">Login</a>
+      </div>  
+
+          <form role="form" onsubmit="checksignup(event)">
+            <select name="role" class="role" id="role">
+                <option value="Other">Other</option>
+                <option value="Admin">Admin</option>
+            </select>
+              <div class="form-group">
+                  <input type="text" placeholder="First Name" id="fname" >
+              </div>
+              <div class ="error" id="error0"></div>
+
+              <div class="form-group">
+                  <input type="text" placeholder="Last Name" id="lname" >
+              </div>
+              <div class ="error" id="error1"></div>
+
+              <div class="form-group">
+                  <input type="text" placeholder="Email" id="email" >
+              </div>
+              <div class ="error" id="error2"></div>
+
+              <div class="form-group">
+                  <input type="password" placeholder="Password" id="password" >
+              </div>
+              <div class ="error" id="error3"></div>
+
+              <div class="form-group">
+                  <button type="submit">Register</button>
+              </div>
+          </form>
+    </div>
+</div>
+
+<!-- MDB -->
+<script
+src="./app.js"
+>
+    //  src="https://cdnjs.cloudflare.com/ajax/libs/mdb-ui-kit/4.2.0/mdb.min.js" 
+</script>
+</body>
+</html>
